@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Thème clair (noir et blanc) */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 240 5.9% 90%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 240 4.9% 83.9%;
+  }
+
+  .theme-color {
+    --background: 33 40% 93%;
+    --foreground: 0 0% 0%;
+
+    --card: 35 34% 85%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 33 40% 93%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 115 57% 70%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 35 34% 85%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 35 34% 85%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 35 34% 85%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 333 99% 38%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 35 34% 85%;
+    --input: 35 34% 85%;
+    --ring: 115 57% 70%;
+
+    --sidebar-background: 33 40% 93%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 33 40% 93%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 35 34% 85%;
+    --sidebar-ring: 115 57% 70%;
+  }
+
+  .theme-sync {
+    --background: 0 0% 100%;
+    --foreground: 165 49% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 165 49% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 165 49% 20%;
+
+    --primary: 165 49% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 115 57% 70%;
+    --secondary-foreground: 165 49% 20%;
+
+    --muted: 39 29% 93%;
+    --muted-foreground: 165 49% 40%;
+
+    --accent: 39 29% 87%;
+    --accent-foreground: 165 49% 20%;
+
+    --destructive: 333 99% 38%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 39 29% 87%;
+    --input: 39 29% 87%;
+    --ring: 115 57% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-medium tracking-tight;
+  }
+}
+
+@layer components {
+
+  /* Composants spécifiques au thème */
+  .sync-card {
+    @apply bg-white border border-sync-sand rounded-xl shadow-sm;
+  }
+
+  .sync-sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg transition-colors;
+  }
+
+  .theme-color .sync-sidebar-item {
+    @apply text-black hover:bg-sync-mint/10;
+  }
+
+  .sync-sidebar-item.active {
+    @apply bg-sync-mint;
+  }
+
+  .sidebar-icon {
+    @apply w-6 h-6 text-gray-600 dark:text-gray-400;
+  }
+
+  .theme-color .sync-sidebar-item.active {
+    @apply text-black;
+  }
+
+  .sync-button-primary {
+    @apply rounded-lg px-4 py-2 transition-colors;
+  }
+
+  .theme-color .sync-button-primary {
+    @apply bg-sync-mint text-black hover:bg-sync-mint-dark;
+  }
+
+  .sync-button-secondary {
+    @apply rounded-lg px-4 py-2 transition-colors;
+  }
+
+  .theme-color .sync-button-secondary {
+    @apply bg-sync-mint text-black hover:bg-sync-mint-dark;
+  }
+
+  .sync-data-card {
+    @apply p-4 rounded-xl;
+  }
+
+  .theme-color .sync-data-card {
+    @apply bg-sync-beige;
+  }
+
+  .sync-stat-value {
+    @apply text-3xl font-bold;
+  }
+
+  .theme-color .sync-stat-value {
+    @apply text-black;
+  }
+
+  .sync-stat-label {
+    @apply text-sm;
+  }
+
+  .theme-color .sync-stat-label {
+    @apply text-black/70;
+  }
+
+  .sync-chart-container {
+    @apply p-4 rounded-xl;
+  }
+
+  .theme-color .sync-chart-container {
+    @apply bg-white border border-sync-sand;
+  }
+
+  .sync-progress-bar {
+    @apply h-2 rounded-full;
+  }
+
+  .theme-color .sync-progress-bar {
+    @apply bg-sync-mint;
+  }
+
+  .sync-progress-track {
+    @apply h-2 rounded-full;
+  }
+
+  .theme-color .sync-progress-track {
+    @apply bg-sync-sand;
+  }
+
+  .sync-badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .theme-color .sync-badge-success {
+    @apply bg-sync-mint text-black;
+  }
+
+  .theme-color .sync-badge-warning {
+    @apply bg-sync-warning text-black;
+  }
+
+  .theme-color .sync-badge-danger {
+    @apply bg-sync-crimson text-white;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm;
+  }
+
+  .glass-card-dark {
+    @apply bg-architect-900/80 backdrop-blur-sm border border-architect-800/50 shadow-md;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-md;
+  }
+
+  .subtle-ring {
+    @apply ring-1 ring-black/5 dark:ring-white/10;
+  }
+
+  /* Styles pour la sidebar repliée */
+  .sidebar-collapsed {
+    width: 4rem !important;
+    transition: width 0.3s ease;
+  }
+
+  .sidebar-collapsed .sync-sidebar-item {
+    justify-content: center;
+    padding: 0.75rem;
+    position: relative;
+  }
+
+  .sidebar-collapsed .sync-sidebar-item span {
+    display: none;
+  }
+
+  .sidebar-collapsed .sync-sidebar-item svg {
+    margin: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  /* Style pour le hover tooltip en mode replié */
+  .sidebar-collapsed .sync-sidebar-item:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem;
+    background-color: hsl(var(--background));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    z-index: 50;
+    margin-left: 0.5rem;
+  }
+
+  header {
+    transition: padding-left 0.3s ease;
+  }
+
+  /* Ajustement pour le mode non-replié */
+  header:not(.sidebar-collapsed) {
+    padding-left: 16rem;
+  }
+
+  .sidebar-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Styles pour la sidebar */
+  .sidebar-base {
+    @apply fixed left-0 top-0 h-full z-50;
+  }
+
+  /* État déplié */
+  .sidebar-expanded {
+    @apply w-64;
+  }
+
+  /* État replié */
+  .sidebar-collapsed {
+    @apply w-16;
+  }
+
+  /* Style des éléments de menu en mode replié */
+  .sidebar-collapsed .menu-item-text {
+    @apply hidden;
+  }
+
+  .sidebar-collapsed .menu-item-icon {
+    @apply mx-auto;
+  }
+
+  /* Styles pour la sidebar */
+  .sidebar-menu-item {
+    @apply relative;
+  }
+
+  /* Tooltip pour le mode replié */
+  [title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: hsl(var(--background));
+    border: 1px solid hsl(var(--border));
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    z-index: 50;
+    margin-left: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Ajustement du contenu principal */
+.main-content {
+  margin-left: var(--sidebar-width);
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: 4rem;
+}
+
+/* Styles spécifiques pour le thème Couleur */
+.theme-color .sidebar-collapsed .sync-sidebar-item {
+  @apply bg-sync-beige;
+}
+
+.theme-color .sidebar-collapsed .sync-sidebar-item.active {
+  @apply bg-sync-mint;
+}
+
+/* Style pour la sidebar avec arrondis */
+.sidebar-rounded {
+  border-radius: var(--radius);
+  margin: 0.5rem;
+  height: calc(100vh - 1rem);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+/* Ajustement pour le main content lorsque la sidebar a des marges */
+.main-content-adjusted {
+  margin-left: calc(var(--sidebar-width) + 0.5rem);
+}
+
+.main-content-adjusted.sidebar-collapsed {
+  margin-left: calc(4rem + 0.5rem);
+}
+/* Ajoutez ce CSS pour aider avec le zoom des annotations */
+.zoom-invariant {
+  transform: translate(-50%, -50%) scale(calc(1 / var(--zoom-level, 1)));
+}
